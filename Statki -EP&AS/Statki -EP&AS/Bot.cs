@@ -14,15 +14,20 @@ namespace Statki__EP_AS
             difficulty = diff;
         }
 
-        public int[] Put_ship(int n, int m, char[,] plansza)
+        public int[] Put_ship(int n, int m, Plansza plan)
         {
             Random rnd = new Random();
             rnd.Next(1, 13);
-            int[] result = new int[2];
+            int[] result = new int[4];
             if (difficulty == 0)
             {
-                result[0] = rnd.Next(n+1);
-                result[1] = rnd.Next(m+1);
+                do
+                {
+                    result[0] = rnd.Next(1, 5);
+                    result[1] = rnd.Next(n + 1);
+                    result[2] = rnd.Next(m + 1);
+                    result[3] = rnd.Next(2);
+                } while (plan.UmiescStatek(result[0], result[1], result[2], result[3] == 0 ? false : true));
 
             }
             return result;
