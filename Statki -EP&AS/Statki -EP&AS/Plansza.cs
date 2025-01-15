@@ -102,15 +102,31 @@ namespace Statki__EP_AS
             return true; 
         }
 
-        bool Atak(string ruch)
+        public bool Atak(int x, int y)
         {
+            if (pole[x, y] == 'X' || pole[x, y] == 'O')
+            {
+                Console.WriteLine("To pole byl juz atakowane");
+                return false;
+            }
 
-            int kolumna = ruch[0] - 'A';
-            int wiersz = int.Parse(ruch.Substring(1)) - 1;
+            if (pole[x,y] != '-')
+            {
+                Console.WriteLine("Trafiony");
+                pole[x, y] -= (char)32;
+                return true;
 
-            if (plansza)
 
+            }
+            else
+            {
+                Console.WriteLine("Pudlo");
+                pole[x, y] = 'O';
+                return false;
+            }
         }
+
+        
 
 
 

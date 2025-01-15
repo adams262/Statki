@@ -13,6 +13,8 @@ namespace Statki__EP_AS
             plans.WyswietlPlansze();
             plans.UmiescStatek(4,0,0,false);
             plans.WyswietlPlansze();
+            plans.Atak(0, 0);
+            plans.WyswietlPlansze();
 
 
         }
